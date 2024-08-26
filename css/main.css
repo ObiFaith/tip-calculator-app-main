@@ -11,6 +11,6 @@ input[type='number']::-webkit-inner-spin-button {
 
 @layer utilities {
 	.input {
-		@apply text-right invalid:border-red border-2 hover:border-cyan font-semibold border-very-light-grayish-cyan bg-very-light-grayish-cyan text-very-dark-cyan px-2 text-2xl outline-none rounded-md w-full py-1;
+		@apply text-right border-2 hover:border-cyan font-semibold border-very-light-grayish-cyan bg-very-light-grayish-cyan text-very-dark-cyan px-2 text-2xl outline-none rounded-md w-full py-1;
 	}
 }
