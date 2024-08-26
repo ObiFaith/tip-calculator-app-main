@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/css/style.css" />
+	</head>
+	<body
+		class="grid place-items-center max-sm:pt-12 min-h-[100vh] text-white bg-light-grayish-cyan"
+	>
+		<div class="w-full max-w-3xl">
+			<header class="pb-16">
+				<img class="mx-auto" src="./images/logo.svg" alt="logo" />
+			</header>
+			<main
+				class="bg-white grid items-center p-8 gap-12 sm:grid-cols-2 rounded-3xl max-sm:rounded-b-none"
+			>
+				<div
+					class="flex gap-6 *:font-semibold text-dark-grayish-cyan flex-col justify-between"
+				>
+					<div>
+						<p class="pb-1">Bill</p>
+						<div class="relative">
+							<input
+								class="input"
+								type="number"
+								placeholder="0"
+								inputmode="numeric"
+							/>
+							<img
+								class="absolute top-3.5 left-4"
+								src="./images/icon-dollar.svg"
+								alt="dollar"
+							/>
+						</div>
+					</div>
+					<div>
+						<p class="pb-1">Select Tip %</p>
+						<div
+							class="grid gap-4 grid-cols-3 cursor-pointer *:text-xl"
+						>
+							<div
+								class="tip rounded-md text-center hover:bg-cyan bg-very-dark-cyan text-white p-2"
+							>
+								5%
+							</div>
+							<div
+								class="tip rounded-md text-center hover:bg-cyan bg-very-dark-cyan text-white p-2"
+							>
+								10%
+							</div>
+							<div
+								class="tip rounded-md text-center hover:bg-cyan bg-very-dark-cyan text-white p-2"
+							>
+								15%
+							</div>
+							<div
+								class="tip rounded-md text-center hover:bg-cyan bg-very-dark-cyan text-white p-2"
+							>
+								25%
+							</div>
+							<div
+								class="tip rounded-md text-center hover:bg-cyan bg-very-dark-cyan text-white p-2"
+							>
+								50%
+							</div>
+							<div>
+								<input
+									class="input placeholder:text-center placeholder:text-xl"
+									type="number"
+									placeholder="Custom"
+								/>
+							</div>
+						</div>
+					</div>
+					<div>
+						<p class="pb-1">Number of People</p>
+						<div class="relative">
+							<input
+								class="input"
+								type="number"
+								placeholder="1"
+								inputmode="numeric"
+							/>
+							<img
+								class="absolute top-3.5 left-4"
+								src="./images/icon-person.svg"
+								alt="person"
+							/>
+						</div>
+					</div>
+				</div>
+				<div
+					class="bg-very-dark-cyan p-6 grid gap-24 rounded-3xl sm:rounded-xl"
+				>
+					<div class="grid gap-12">
+						<div class="flex justify-between">
+							<span class="text-very-light-grayish-cyan">
+								Tip Amount<br /><span
+									class="text-dark-grayish-cyan"
+									>/ person</span
+								>
+							</span>
+							<div class="flex gap-1 items-center">
+								<h1
+									class="text-3xl font-bold text-cyan"
+									id="tip-amt"
+								>
+									$<span>0.00</span>
+								</h1>
+							</div>
+						</div>
+						<div class="flex justify-between">
+							<span class="text-very-light-grayish-cyan">
+								Total<br /><span class="text-dark-grayish-cyan"
+									>/ person</span
+								>
+							</span>
+							<div class="flex gap-1 items-center">
+								<h1
+									class="text-3xl font-bold text-cyan"
+									id="total-amt"
+								>
+									$<span>0.00</span>
+								</h1>
+							</div>
+						</div>
+					</div>
+					<button
+						class="text-xl font-semibold uppercase text-very-dark-cyan hover:bg-very-light-grayish-cyan bg-cyan rounded-md py-2 w-full"
+					>
+						Reset
+					</button>
+				</div>
+			</main>
+		</div>
+		<script src="./index.js"></script>
+	</body>
+</html>
