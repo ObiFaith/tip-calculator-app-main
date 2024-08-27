@@ -17,13 +17,21 @@ const calcTipAndTotalAmt = (value, percent) => {
 		Number(tipAmt.innerText) + Number(inputs[0].value) / numberOfPersons;
 	totalAmt.innerText = Number(totalAmt.innerText).toFixed(2);
 	tips.forEach(tip => {
-		if (tip.innerText == percent)
+		if (tip.innerText == percent) {
 			tip.style.backgroundColor = 'hsl(172, 67%, 45%)';
-		else tip.style.backgroundColor = 'hsl(183, 100%, 15%)';
+			tip.style.color = 'hsl(183, 100%, 15%)';
+		} else {
+			tip.style.backgroundColor = 'hsl(183, 100%, 15%)';
+			tip.style.color = '#FFF';
+		}
 	});
 	prev_value = value;
 	prev_percent = percent;
 };
+
+inputs[0].addEventListener('input', () =>
+	calcTipAndTotalAmt(inputs[0].value, prev_percent)
+);
 
 inputs[1].addEventListener('input', () =>
 	calcTipAndTotalAmt(inputs[0].value, inputs[1].value)
