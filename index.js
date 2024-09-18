@@ -7,36 +7,42 @@ const totalAmt = document.querySelector('#total-amt').firstElementChild;
 
 let numberOfPersons = 1,
 	prev_bill,
-	prev_tip;
+	prev_tip,
+	isZero = false;
 
 const calcTipAndTotalAmt = (bill, tip) => {
-	// remove % to get tip value
-	const tipValue = tip.replace('%', '');
-	// calculate tip amount (in 2dp)
-	tipAmt.innerText = ((bill * tipValue) / 100 / numberOfPersons).toFixed(2);
+	if (!isZero && tip) {
+		// remove % to get tip value
+		const tipValue = tip.replace('%', '');
+		// calculate tip amount (in 2dp)
+		tipAmt.innerText = ((bill * tipValue) / 100 / numberOfPersons).toFixed(
+			2
+		);
 
-	// calculate total amount
-	totalAmt.innerText =
-		Number(tipAmt.innerText) + Number(inputs[0].value) / numberOfPersons;
-	// convert total amount to 2dp (decimal point)
-	totalAmt.innerText = Number(totalAmt.innerText).toFixed(2);
+		// calculate total amount
+		totalAmt.innerText =
+			Number(tipAmt.innerText) +
+			Number(inputs[0].value) / numberOfPersons;
+		// convert total amount to 2dp (decimal point)
+		totalAmt.innerText = Number(totalAmt.innerText).toFixed(2);
 
-	// style each tip elements
-	tips.forEach(tipElem => {
-		// style for selected tip element
-		if (tipElem.innerText == tip) {
-			tipElem.style.backgroundColor = 'hsl(172, 67%, 45%)';
-			tipElem.style.color = 'hsl(183, 100%, 15%)';
-		}
-		// style for other tip elements
-		else {
-			tipElem.style.backgroundColor = 'hsl(183, 100%, 15%)';
-			tipElem.style.color = '#FFF';
-		}
-	});
+		// style each tip elements
+		tips.forEach(tipElem => {
+			// style for selected tip element
+			if (tipElem.innerText == tip) {
+				tipElem.style.backgroundColor = 'hsl(172, 67%, 45%)';
+				tipElem.style.color = 'hsl(183, 100%, 15%)';
+			}
+			// style for other tip elements
+			else {
+				tipElem.style.backgroundColor = 'hsl(183, 100%, 15%)';
+				tipElem.style.color = '#FFF';
+			}
+		});
 
-	prev_bill = bill;
-	prev_tip = tip;
+		prev_bill = bill;
+		prev_tip = tip;
+	}
 };
 
 // calculate tip amount and total amount when there's a change in bill (inputted) value
@@ -57,21 +63,23 @@ const reset = () => {
 
 inputs[2].addEventListener('input', () => {
 	// when number of people is < 1 or empty, reset the tip and total amount to zero
-	if (inputs[2].value < 1 || inputs[2].value.trim() === '') reset();
-	else {
-		numberOfPersons = inputs[2].value;
-		// using the prev bill and tip, calc tip amt and total amt now that the value of numberOfPerson have changed
-		calcTipAndTotalAmt(prev_bill, prev_tip);
-	}
+	if (inputs[2].value < 1 || inputs[2].value.trim() === '') {
+		reset();
+		isZero = true;
 
-	if (inputs[2].value == 0) {
 		// input style for invalid number of people
 		zero.style.display = 'block';
 		inputs[2].style.borderColor = '#FC3A3A';
 	} else {
+		isZero = false;
+		numberOfPersons = inputs[2].value;
+
 		// default input number of people
 		zero.style.display = 'none';
-		inputs[2].style.borderColor = 'hsl(172, 67%, 45%)';
+		inputs[2].style.borderColor = 'hsl(189, 41%, 97%)';
+
+		// using the prev bill and tip, calc tip amt and total amt now that the value of numberOfPerson have changed
+		if (prev_bill) calcTipAndTotalAmt(prev_bill, prev_tip);
 	}
 });
 
