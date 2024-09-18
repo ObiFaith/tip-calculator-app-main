@@ -22,16 +22,16 @@ const calcTipAndTotalAmt = (bill, tip) => {
 	totalAmt.innerText = Number(totalAmt.innerText).toFixed(2);
 
 	// style each tip elements
-	tips.forEach(tip => {
+	tips.forEach(tipElem => {
 		// style for selected tip element
-		if (tip.innerText == tip) {
-			tip.style.backgroundColor = 'hsl(172, 67%, 45%)';
-			tip.style.color = 'hsl(183, 100%, 15%)';
+		if (tipElem.innerText == tip) {
+			tipElem.style.backgroundColor = 'hsl(172, 67%, 45%)';
+			tipElem.style.color = 'hsl(183, 100%, 15%)';
 		}
 		// style for other tip elements
 		else {
-			tip.style.backgroundColor = 'hsl(183, 100%, 15%)';
-			tip.style.color = '#FFF';
+			tipElem.style.backgroundColor = 'hsl(183, 100%, 15%)';
+			tipElem.style.color = '#FFF';
 		}
 	});
 
