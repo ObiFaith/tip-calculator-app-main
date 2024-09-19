@@ -86,6 +86,7 @@ inputs[2].addEventListener('input', () => {
 // calculate the tip and total amount when a tip is clicked
 tips.forEach(tip => {
 	tip.addEventListener('click', () => {
+		inputs[1].value = '';
 		calcTipAndTotalAmt(inputs[0].value, tip.innerText);
 	});
 });
